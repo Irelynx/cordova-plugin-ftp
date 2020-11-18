@@ -22,12 +22,12 @@
     xmlns:rim="http://www.blackberry.com/ns/widgets"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="cordova-plugin-ftp"
-    version="1.1.1">
+    version="1.1.2">
     <name>Ftp</name>
     <description>Cordova Ftp Plugin</description>
     <license>Apache 2.0</license>
     <keywords>cordova,ftp</keywords>
-    <repo>https://github.com/xfally/cordova-plugin-ftp.git</repo>
+    <repo>https://github.com/Irelynx/cordova-plugin-ftp.git</repo>
 
     <js-module src="www/ftp.js" name="ftp">
         <clobbers target="cordova.plugin.ftp" />

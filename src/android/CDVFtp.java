@@ -52,7 +52,7 @@ public class CDVFtp extends CordovaPlugin {
                     try {
                         connect(args.getString(0), args.getString(1), args.getString(2), callbackContext);
                     } catch (Exception e) {
-                        callbackContext.error(e.toString());
+                        callbackContext.error(Log.getStackTraceString(e));
                     }
                 }
             });
@@ -62,7 +62,7 @@ public class CDVFtp extends CordovaPlugin {
                     try {
                         list(args.getString(0), callbackContext);
                     } catch (Exception e) {
-                        callbackContext.error(e.toString());
+                        callbackContext.error(Log.getStackTraceString(e));
                     }
                 }
             });
@@ -72,7 +72,7 @@ public class CDVFtp extends CordovaPlugin {
                     try {
                         createDirectory(args.getString(0), callbackContext);
                     } catch (Exception e) {
-                        callbackContext.error(e.toString());
+                        callbackContext.error(Log.getStackTraceString(e));
                     }
                 }
             });
@@ -82,7 +82,7 @@ public class CDVFtp extends CordovaPlugin {
                     try {
                         deleteDirectory(args.getString(0), callbackContext);
                     } catch (Exception e) {
-                        callbackContext.error(e.toString());
+                        callbackContext.error(Log.getStackTraceString(e));
                     }
                 }
             });
@@ -92,7 +92,7 @@ public class CDVFtp extends CordovaPlugin {
                     try {
                         deleteFile(args.getString(0), callbackContext);
                     } catch (Exception e) {
-                        callbackContext.error(e.toString());
+                        callbackContext.error(Log.getStackTraceString(e));
                     }
                 }
             });
@@ -102,7 +102,7 @@ public class CDVFtp extends CordovaPlugin {
                     try {
                         uploadFile(args.getString(0), args.getString(1), callbackContext);
                     } catch (Exception e) {
-                        callbackContext.error(e.toString());
+                        callbackContext.error(Log.getStackTraceString(e));
                     }
                 }
             });
@@ -112,7 +112,7 @@ public class CDVFtp extends CordovaPlugin {
                     try {
                         downloadFile(args.getString(0), args.getString(1), callbackContext);
                     } catch (Exception e) {
-                        callbackContext.error(e.toString());
+                        callbackContext.error(Log.getStackTraceString(e));
                     }
                 }
             });
@@ -122,7 +122,7 @@ public class CDVFtp extends CordovaPlugin {
                     try {
                         cancelAllRequests(callbackContext);
                     } catch (Exception e) {
-                        callbackContext.error(e.toString());
+                        callbackContext.error(Log.getStackTraceString(e));
                     }
                 }
             });
@@ -132,7 +132,7 @@ public class CDVFtp extends CordovaPlugin {
                     try {
                         disconnect(callbackContext);
                     } catch (Exception e) {
-                        callbackContext.error(e.toString());
+                        callbackContext.error(Log.getStackTraceString(e));
                     }
                 }
             });
@@ -170,7 +170,7 @@ public class CDVFtp extends CordovaPlugin {
                 this.client.login(username, password);
                 callbackContext.success("Connect and login OK.");
             } catch (Exception e) {
-                callbackContext.error(e.toString());
+                callbackContext.error(Log.getStackTraceString(e));
             }
         }
     }
@@ -204,7 +204,7 @@ public class CDVFtp extends CordovaPlugin {
                 }
                 callbackContext.success(fileList);
             } catch (Exception e) {
-                callbackContext.error(e.toString());
+                callbackContext.error(Log.getStackTraceString(e));
             }
         }
     }
@@ -226,7 +226,7 @@ public class CDVFtp extends CordovaPlugin {
                 this.client.createDirectory(path);
                 callbackContext.success("Create directory OK");
             } catch (Exception e) {
-                callbackContext.error(e.toString());
+                callbackContext.error(Log.getStackTraceString(e));
             }
         }
     }
@@ -248,7 +248,7 @@ public class CDVFtp extends CordovaPlugin {
                 this.client.deleteDirectory(path);
                 callbackContext.success("Delete directory OK");
             } catch (Exception e) {
-                callbackContext.error(e.toString());
+                callbackContext.error(Log.getStackTraceString(e));
             }
         }
     }
@@ -265,7 +265,7 @@ public class CDVFtp extends CordovaPlugin {
                 this.client.deleteFile(file);
                 callbackContext.success("Delete file OK");
             } catch (Exception e) {
-                callbackContext.error(e.toString());
+                callbackContext.error(Log.getStackTraceString(e));
             }
         }
     }
@@ -289,7 +289,7 @@ public class CDVFtp extends CordovaPlugin {
                 client.upload(remoteFileName, in, 0, 0, new CDVFtpTransferListener(size, callbackContext));
                 // refer to CDVFtpTransferListener for transfer percent and completed
             } catch (Exception e) {
-                callbackContext.error(e.toString());
+                callbackContext.error(Log.getStackTraceString(e));
             }
         }
     }
@@ -320,7 +320,7 @@ public class CDVFtp extends CordovaPlugin {
                 }
                 // should never reach here!
             } catch (Exception e) {
-                callbackContext.error(e.toString());
+                callbackContext.error(Log.getStackTraceString(e));
             }
         }
     }
@@ -332,7 +332,7 @@ public class CDVFtp extends CordovaPlugin {
             this.client.abortCurrentDataTransfer(true);
             callbackContext.success("Cancel OK.");
         } catch (Exception e) {
-            callbackContext.error(e.toString());
+            callbackContext.error(Log.getStackTraceString(e));
         }
     }
 
@@ -343,7 +343,7 @@ public class CDVFtp extends CordovaPlugin {
             this.client.disconnect(true);
             callbackContext.success("Disconnect OK.");
         } catch (Exception e) {
-            callbackContext.error(e.toString());
+            callbackContext.error(Log.getStackTraceString(e));
         }
     }
 }
